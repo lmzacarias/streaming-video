@@ -3,19 +3,13 @@ import { getMovieData } from "../api/movies-api";
 import { Layout, Menu, Breadcrumb } from "antd";
 import { Switch, Route, Redirect } from "react-router-dom";
 import imgUmet from "../assets/umet.png";
-import Card from "./Card";
+import Card from "./CardMain";
+import CarouselComponent from "./ui/CarouselComponent";
+
 const { Header, Content, Footer, Sider } = Layout;
 
-const Main = ({history}) => {
-  const init = async () => {
-    const getData = await getMovieData();
-    console.log("🎉", getData);
-  };
-  useEffect(() => {
-    init();
-  }, []);
+const Main = ({ history }) => {
   const pageOne = () => {
-    console.log("page one 🎉");
     history.push("/peliculas");
   };
 
@@ -41,6 +35,8 @@ const Main = ({history}) => {
           <Route exact path="/peliculas" component={Card} />
         </Switch>
       </Content>
+      {/*  <CarouselComponent /> */}
+
       <Footer style={{ textAlign: "center" }}>
         Powered by{" "}
         <span>
